@@ -1,0 +1,150 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Display a basemap layer</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" crossorigin=""></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"></script>
+
+  <!-- Load Esri Leaflet Vector from CDN -->
+  <script src="https://unpkg.com/esri-leaflet-vector@4.0.1/dist/esri-leaflet-vector.js" crossorigin=""></script>
+
+  <!-- Load Esri Leaflet Geocoder from CDN (for search bar) -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.1.4/dist/esri-leaflet-geocoder.css"
+    crossorigin="" />
+  <script src="https://unpkg.com/esri-leaflet-geocoder@3.1.4/dist/esri-leaflet-geocoder.js" crossorigin=""></script>
+
+  
+
+  <style>
+    html,
+    body,
+    #map {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #323232;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="map"></div>
+  <script>
+    const apiKey = "AAPK655a034b4c834df4b59a330d7190afadSYju17YoOe0EWSeRJhdYUcPHmjVfxf1DJJMPEKUZ1KjXQG43n2vTG9gUNqjKX9Rd";
+
+    const map = L.map("map").setView([42.2449, -71.2935], 11);
+
+    //Base Light map with labels
+
+    base = L.esri.Vector.vectorBasemapLayer("ArcGIS:LightGray:Base", {
+      apikey: apiKey,
+      pane: "tilePane" // Change pane to allow for multiple vector basemaps
+    }).addTo(map);
+
+    L.esri.Vector.vectorBasemapLayer("ArcGIS:LightGray:Labels", {
+      apikey: apiKey
+    }).addTo(map);
+
+    // CRW boundary style
+    var boundaryStyle = {
+      "color": "#82eefd",
+      "weight": 3,
+      "opacity": 0.65
+    };
+
+    // Add CRW boundary
+    var boundaryLayer = L.esri
+      .featureLayer({
+        url: "https://services2.arcgis.com/Kuf0uTOqI2C0lE9a/ArcGIS/rest/services/CRWboundary/FeatureServer/0",
+        style: () => {return boundaryStyle}
+      });
+    boundaryLayer.addTo(map);
+
+    </script>
+    <script src="DamLayer.js"></script>
+    <script src="CulvertLayer.js"></script>
+    <script>
+
+    // Charles River style
+    var charlesRiverStyle = {
+      "weight": 2.5,
+    };
+
+    // Add Charles River Overlay
+    var charlesRiver = L.esri
+      .featureLayer({
+        url: "https://services2.arcgis.com/Kuf0uTOqI2C0lE9a/ArcGIS/rest/services/charlesriver/FeatureServer/0",
+        style: () => {return charlesRiverStyle}
+      });
+    charlesRiver.addTo(map);
+
+    // stream style
+    var streamStyle = {
+      "weight": 1,
+    };
+
+    // add streams
+    var streams = L.esri
+      .featureLayer({
+        url: "https://services2.arcgis.com/Kuf0uTOqI2C0lE9a/arcgis/rest/services/streams in CRW/FeatureServer/0",
+        style: () => {return streamStyle}
+      });
+
+    streams.addTo(map);
+
+    // pond style
+    var pondStyle = {
+      "weight": 1,
+    };
+
+    // add ponds
+    var ponds = L.esri
+      .featureLayer({
+        url: "https://services2.arcgis.com/Kuf0uTOqI2C0lE9a/arcgis/rest/services/ponds in CRW/FeatureServer/0",
+        style: () => {return pondStyle}
+      });
+
+    ponds.addTo(map);
+
+    // create control panel for feature layers
+    const layers = {
+      Base: base
+    };
+
+    const overlays = {
+      "Charles River Watershed Boundary": boundaryLayer,
+      "Charles River": charlesRiver,
+      "Streams": streams,
+      "Ponds and Lakes": ponds,
+      "Dams (Mainstem)": mainstemDams,
+      "Dams (Tributary)": tributaryDams,
+      "Culverts": culverts,
+    };
+
+    // https://leafletjs.com/reference.html#control-layers
+    L.control.layers(layers, overlays,
+      {hideSingleBase: true}).addTo(map);
+
+
+    // search bar: https://developers.arcgis.com/esri-leaflet/api-reference/controls/geosearch/
+    L.esri.Geocoding.geosearch({
+      providers: [mainstemDamSearch, tributaryDamSearch, culvertSearch],
+      useMapBounds: false,
+      placeholder: 'Enter dam or culvert name'
+    }).addTo(map);
+
+
+  </script>
+
+</body>
+
+</html>
