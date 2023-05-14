@@ -171,40 +171,41 @@
       });
     charlesRiver.addTo(map);
 
-    //ICONS FOR CULVERTS 1. find a url for the icon that you want, and adjust the icon to whatever size you desire
+    //ICONS FOR CULVERTS 1. find a url for the icon that you want and save the image into CulvertIcons, 
+    //  and adjust the icon's size to whatever size you desire
     // 1: 'no score-missing data'
     const noDataIcon = L.icon({
-      iconUrl: "https://www.freepnglogos.com/uploads/circle-png/black-circle-thin-icon-download-9.png",
+      iconUrl: "/CulvertIcons/culvert_open_circle.png",
       iconSize: [7, 7]
     })
     // 2: 'Severe barrier'
     const severeIcon = L.icon({
-      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Basic_red_dot.png",
+      iconUrl: "/CulvertIcons/severeIcon.png",
       iconSize: [12, 12]
     })
     // 3: 'Significant barrier'
     const significantIcon = L.icon({
-      iconUrl: "https://www.clker.com/cliparts/m/I/n/1/T/P/orange-dot-md.png",
+      iconUrl: "/CulvertIcons/significantIcon.png",
       iconSize: [12, 12]
     })
     // 4: 'Moderate barrier'
     const moderateIcon = L.icon({
-      iconUrl: "https://www.citypng.com/public/uploads/small/11641513619acx4mjbgnw1xgx9gxmytt6sa8jevdsehtrlm6waaxumbtcvj79xpopyjf2ef4ajtw55wbhb4z231dq2zda0xs11jc6m6yzolvvtu.png",
+      iconUrl: "/CulvertIcons/moderateIcon.png",
       iconSize: [20, 20]
     })
     // 5: 'Minor barrier'
     const minorIcon = L.icon({
-      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7c/GAudit_YellowDot.png",
+      iconUrl: "/CulvertIcons/minorIcon.png",
       iconSize: [12, 12]
     })
     // 6: 'Insignicant barrier'
     const insignicantIcon = L.icon({
-      iconUrl: "https://www.pngkey.com/png/full/417-4174990_how-to-set-use-small-green-dot-icon.png",
+      iconUrl: "/CulvertIcons/insignicantIcon.png",
       iconSize: [12, 12]
     })
     // 7: 'No barrier'
     const noBarrierIcon = L.icon({
-      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Location_dot_green.svg/640px-Location_dot_green.svg.png",
+      iconUrl: "/CulvertIcons/noBarrierIcon.png",
       iconSize: [12, 12]
     })
 
