@@ -38,8 +38,10 @@
 <body>
 
   <div id="map"></div>
+  <!-- import api key, should keep the api key private -->
+  <script type='text/javascript' src='/config.js'></script>
   <script>
-    const apiKey = "AAPK655a034b4c834df4b59a330d7190afadSYju17YoOe0EWSeRJhdYUcPHmjVfxf1DJJMPEKUZ1KjXQG43n2vTG9gUNqjKX9Rd";
+    const apiKey = config.API_KEY;
 
     const map = L.map("map").setView([42.2449, -71.2935], 11);
 
@@ -68,9 +70,11 @@
         style: () => {return boundaryStyle}
       });
     boundaryLayer.addTo(map);
-
+    
     </script>
+    <!-- look at DamLayer.js for the code responsible for the dam layer -->
     <script src="DamLayer.js"></script>
+    <!-- look at CulvertLayer.js for the code responsible for the culvert layer -->
     <script src="CulvertLayer.js"></script>
     <script>
 
