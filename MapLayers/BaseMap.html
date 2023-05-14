@@ -57,14 +57,14 @@
     }).addTo(map);
 
     // CRW boundary style
-    var boundaryStyle = {
+    const boundaryStyle = {
       "color": "#82eefd",
       "weight": 3,
       "opacity": 0.65
     };
 
     // Add CRW boundary
-    var boundaryLayer = L.esri
+    const boundaryLayer = L.esri
       .featureLayer({
         url: "https://services2.arcgis.com/Kuf0uTOqI2C0lE9a/ArcGIS/rest/services/CRWboundary/FeatureServer/0",
         style: () => {return boundaryStyle}
@@ -79,12 +79,12 @@
     <script>
 
     // Charles River style
-    var charlesRiverStyle = {
+    const charlesRiverStyle = {
       "weight": 2.5,
     };
 
     // Add Charles River Overlay
-    var charlesRiver = L.esri
+    const charlesRiver = L.esri
       .featureLayer({
         url: "https://services2.arcgis.com/Kuf0uTOqI2C0lE9a/ArcGIS/rest/services/charlesriver/FeatureServer/0",
         style: () => {return charlesRiverStyle}
@@ -92,12 +92,12 @@
     charlesRiver.addTo(map);
 
     // stream style
-    var streamStyle = {
+    const streamStyle = {
       "weight": 1,
     };
 
     // add streams
-    var streams = L.esri
+    const streams = L.esri
       .featureLayer({
         url: "https://services2.arcgis.com/Kuf0uTOqI2C0lE9a/arcgis/rest/services/streams in CRW/FeatureServer/0",
         style: () => {return streamStyle}
@@ -106,12 +106,12 @@
     streams.addTo(map);
 
     // pond style
-    var pondStyle = {
+    const pondStyle = {
       "weight": 1,
     };
 
     // add ponds
-    var ponds = L.esri
+    const ponds = L.esri
       .featureLayer({
         url: "https://services2.arcgis.com/Kuf0uTOqI2C0lE9a/arcgis/rest/services/ponds in CRW/FeatureServer/0",
         style: () => {return pondStyle}

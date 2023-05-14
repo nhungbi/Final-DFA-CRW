@@ -7,7 +7,7 @@
       // Add mainstem dam layer
       const mainstemDamURL = "https://services2.arcgis.com/Kuf0uTOqI2C0lE9a/ArcGIS/rest/services/mainstem%20dams/FeatureServer/0";
   
-      var mainstemDams = L.esri
+      const mainstemDams = L.esri
         .featureLayer({
           url: mainstemDamURL,
           pointToLayer: function (geojson, latlng) {
@@ -52,7 +52,7 @@
       // Add tributary dam layer
       const tributaryDamURL = "https://services2.arcgis.com/Kuf0uTOqI2C0lE9a/ArcGIS/rest/services/tributary%20dams/FeatureServer/0";
   
-      var tributaryDams = L.esri
+      const tributaryDams = L.esri
         .featureLayer({
           url: tributaryDamURL,
           minZoom: 11, // only show tributary dams when zoomed in
