@@ -2,37 +2,37 @@
       //  and adjust the icon's size to whatever size you desire
       // 1: 'no score-missing data'
       const noDataIcon = L.icon({
-        iconUrl: "../CulvertIcons/culvert_open_circle.png",
+        iconUrl: "../Icons/CulvertIcons/culvert_open_circle.png",
         iconSize: [7, 7]
       })
       // 2: 'Severe barrier'
       const severeIcon = L.icon({
-        iconUrl: "../CulvertIcons/severeIcon.png",
+        iconUrl: "../Icons/CulvertIcons/severeIcon.png",
         iconSize: [12, 12]
       })
       // 3: 'Significant barrier'
       const significantIcon = L.icon({
-        iconUrl: "../CulvertIcons/significantIcon.png",
+        iconUrl: "../Icons/CulvertIcons/significantIcon.png",
         iconSize: [12, 12]
       })
       // 4: 'Moderate barrier'
       const moderateIcon = L.icon({
-        iconUrl: "../CulvertIcons/moderateIcon.png",
+        iconUrl: "../Icons/CulvertIcons/moderateIcon.png",
         iconSize: [20, 20]
       })
       // 5: 'Minor barrier'
       const minorIcon = L.icon({
-        iconUrl: "../CulvertIcons/minorIcon.png",
+        iconUrl: "../Icons/CulvertIcons/minorIcon.png",
         iconSize: [12, 12]
       })
       // 6: 'Insignicant barrier'
       const insignicantIcon = L.icon({
-        iconUrl: "../CulvertIcons/insignicantIcon.png",
+        iconUrl: "../Icons/CulvertIcons/insignicantIcon.png",
         iconSize: [12, 12]
       })
       // 7: 'No barrier'
       const noBarrierIcon = L.icon({
-        iconUrl: "../CulvertIcons/noBarrierIcon.png",
+        iconUrl: "../Icons/CulvertIcons/noBarrierIcon.png",
         iconSize: [12, 12]
       })
 
